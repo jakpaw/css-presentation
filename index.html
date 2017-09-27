@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>New CSS features – friday seminar</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/customization.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>
+						New* CSS features
+					</h1>
+					Friday seminar by Jakub Pawłot
+				</section>
+				<section>
+					<h2>
+						Flexible box (flexbox) layout 
+					</h2>
+				</section>
+				<section>
+					<h3>Checkout</h3>
+					<pre><code contenteditable data-trim>
+						.whatever {
+						  color: red;
+						}
+					</code></pre>
+				</section>
+				<section id="css-snip-slide">
+					Slide 2
+					<div id="targetElement">
+						Test text
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js' },
+					{ src: 'plugin/reveal-css-snippet/css-snippet.js', async: true, callback: function() {
+						document.getElementById('css-snip-slide').insertBefore(
+							RevealCSSSnippet({
+								//el is a DOM node that you wish to scope the CSS too. The scoping is done via attribute selector, so beware of specificity issues with existing styles. The default is no scoping, which allows you to write CSS to target anything in the presentation.
+								el: document.querySelector('#css-snip-slide #targetElement'),
+								
+								//cssValue is the default CSS to be loaded into the block at initialization. The default is empty string.
+								cssValue: "background: #ff0;\r\nheight: 50px;"
+							}),
+							document.querySelector('#css-snip-slide #targetElement')
+						)
+					} },
+				],
+				history: true
+			});
+		</script>
+	</body>
+</html>
