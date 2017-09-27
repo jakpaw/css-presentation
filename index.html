@@ -27,17 +27,98 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					Slide 1
-					<pre><code contenteditable data-trim>
-						.whatever {
-						  color: red;
+					<h1>
+						New* CSS features
+					</h1>
+					Friday seminar by Jakub Pawłot
+				</section>
+				<section>
+					<h2>
+						Flexible box (flexbox) layout 
+					</h2>
+				</section>
+				<section>
+					flexbox
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							an alternative to standard block / inline layouts
+						</li>
+						<li>
+							works horizontally or vertically
+						</li>
+						<li>
+							elements grow or shrink adapting to available space
+						</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						flexbox
+						<h3>Vocabulary</h3>
+						<figure>
+							<img src="/img/flex-container.png" />
+							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<img src="/img/flex-axes.png" />
+							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
+						</figure>
+					</section>
+				</section>
+				<section>
+					flexbox
+					<h3>Flex container properties</h3>
+					<pre><code data-trim>
+						.flex-container {
+						  display: flex | inline-flex;
+						  flex-direction: row | column | row-reverse | column-reverse;
+						  flex-wrap: wrap | nowrap | wrap-reverse;
+						  justify-content: flex-start | flex-end | center | space-between | space-around;
+						  align-items: flex-start | flex-end | center | baseline | stretch;
+						  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 						}
 					</code></pre>
 				</section>
-				<section id="css-snip-slide">
-					Slide 2
-					<div id="targetElement">
-						Test text
+				<section>
+					<section>
+						flexbox
+						<h3>Flex item properties</h3>
+						<pre><code data-trim>
+							.flex-item {
+							  flex-basis: auto | &lt;'width'&gt;;
+							  flex-grow: &ltnumber&gt;;
+							  flex-shrink: &ltnumber&gt;;
+							  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+							}
+						</code></pre>
+					</section>
+					<section>
+						...but W3C encourages to use the shorthand <code>flex</code> property, as it "correctly resets any unspecified components to accommodate common uses"
+						<pre><code data-trim>
+							.flex-item {
+							  flex: auto | none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ];
+							  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section id="flex-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="flex-container">
+								<div class="demonstration-item item-1">
+								</div>
+								<div class="demonstration-item item-2">
+								</div>
+								<div class="demonstration-item item-3">
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 			</div>
@@ -58,18 +139,35 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js' },
 					{ src: 'plugin/reveal-css-snippet/css-snippet.js', async: true, callback: function() {
-						document.getElementById('css-snip-slide').insertBefore(
+						document.querySelector('#flex-demonstration .css-editable-sections').appendChild(
 							RevealCSSSnippet({
-								//el is a DOM node that you wish to scope the CSS too. The scoping is done via attribute selector, so beware of specificity issues with existing styles. The default is no scoping, which allows you to write CSS to target anything in the presentation.
-								el: document.querySelector('#css-snip-slide #targetElement'),
-								
-								//cssValue is the default CSS to be loaded into the block at initialization. The default is empty string.
-								cssValue: "background: #ff0;\r\nheight: 50px;"
-							}),
-							document.querySelector('#css-snip-slide #targetElement')
+								el: document.querySelector('#flex-demonstration .flex-container'),
+								cssValue: 'display: flex;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-1'),
+								cssValue: 'flex: 1;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-2').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-2'),
+								cssValue: 'flex: 1.5;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-3').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-3'),
+								cssValue: 'flex: 2;'
+							})
 						)
 					} },
-				]
+				],
+				history: true,
+				width: 1280,
+				height: 720
 			});
 		</script>
 	</body>
