@@ -28,7 +28,7 @@
 			<div class="slides">
 				<section>
 					<h1>
-						New* CSS features
+						New CSS features
 					</h1>
 					Friday seminar by Jakub Pawłot
 				</section>
@@ -36,26 +36,309 @@
 					<h2>
 						Flexible box (flexbox) layout 
 					</h2>
+					<p class="ciu_embed" data-feature="flexbox" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=flexbox">Can I Use flexbox?</a> Data on support for the flexbox feature across the major browsers from caniuse.com.
+					</p>
 				</section>
 				<section>
-					<h3>Checkout</h3>
-					<pre><code contenteditable data-trim>
-						.whatever {
-						  color: red;
+					flexbox layout
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							an alternative to standard block / inline layouts
+						</li>
+						<li>
+							works horizontally or vertically
+						</li>
+						<li>
+							elements grow or shrink adapting to available space
+						</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						flexbox layout
+						<h3>Vocabulary</h3>
+						<figure>
+							<img src="/img/flex-container.png" />
+							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<img src="/img/flex-axes.png" />
+							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
+						</figure>
+					</section>
+				</section>
+				<section>
+					flexbox layout
+					<h3>Flex container properties</h3>
+					<pre><code data-trim>
+						.flex-container {
+						  display: flex | inline-flex;
+						  flex-direction: row | column | row-reverse | column-reverse;
+						  flex-wrap: wrap | nowrap | wrap-reverse;
+						  justify-content: flex-start | flex-end | center | space-between | space-around;
+						  align-items: flex-start | flex-end | center | baseline | stretch;
+						  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 						}
 					</code></pre>
 				</section>
-				<section id="css-snip-slide">
-					Slide 2
-					<div id="targetElement">
-						Test text
+				<section>
+					<section>
+						flexbox layout
+						<h3>Flex item properties</h3>
+						<pre><code data-trim>
+							.flex-item {
+							  flex-basis: auto | &lt;'width'&gt;;
+							  flex-grow: &lt;number&gt;;
+							  flex-shrink: &lt;umber&gt;;
+							  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+							}
+						</code></pre>
+					</section>
+					<section>
+						...but W3C encourages to use the shorthand <code>flex</code> property, as it "correctly resets any unspecified components to accommodate common uses"
+						<pre><code data-trim>
+							.flex-item {
+							  flex: auto | none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ];
+							  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section id="flex-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="flex-container">
+								<div class="demonstration-item item-1">
+								</div>
+								<div class="demonstration-item item-2">
+								</div>
+								<div class="demonstration-item item-3">
+								</div>
+							</div>
+						</div>
 					</div>
+				</section>
+				<section>
+					flexbox layout
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="http://flexboxfroggy.com/">
+								Flexbox Froggy
+							</a>
+						</li>
+						<li>
+							<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
+								A Complete Guide to Flexbox – CSS-tricks
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">
+								Using CSS Flexible Boxes – MDN
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						Multi-column layout 
+					</h2>
+					<p class="ciu_embed" data-feature="multicolumn" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=multicolumn">Can I Use multicolumn?</a> Data on support for the multicolumn feature across the major browsers from caniuse.com.
+					</p>
+				</section>
+				<section>
+					multi-column layout
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							block layout extension
+						</li>
+						<li>
+							automatically divides content into columns
+						</li>
+						<li>
+							you can specifiy column count and/or minimum column width
+						</li>
+						<li>
+							works on block elements and on text
+						</li>
+					</ul>
+				</section>
+				<section>
+					multi-column layout
+					<h3>Columns container properties</h3>
+					<pre><code data-trim>
+						.columns-container {
+						  column-count: &lt;integer&gt; | auto;
+						  column-width: &lt;length&gt; | auto;
+						  column-gap: &lt;length&gt; | &lt;percentage&gt; | normal;
+						  column-fill: auto | balance;
+						  column-rule: &lt;'column-rule-width'&gt; || &lt;'column-rule-style'&gt; || &lt;'column-rule-color'&gt;;
+						  ...
+						}
+					</code></pre>
+				</section>
+				<section>
+					multi-column layout
+					<h3>Children properties</h3>
+					<pre><code data-trim>
+						.columns-child {
+						  break-inside: auto | avoid | avoid-column | column;
+						  break-before: auto | avoid | avoid-column | column;
+						  break-after: auto | avoid | avoid-column | column;
+						  column-span: none | all;
+						}
+					</code></pre>
+					break-before, break-after and column-span not supported by some browsers
+				</section>
+				<section id="columns-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="columns-container">
+								<div class="demonstration-item item-1">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer hendrerit eros in luctus feugiat.
+								</div>
+								<div class="demonstration-item item-2">
+									Praesent tincidunt, nulla quis ultrices rhoncus, libero arcu molestie dolor, et accumsan dui velit id tortor.
+								</div>
+								<div class="demonstration-item item-3">
+									Cras ac augue nec tortor congue convallis elementum id nisi. Integer hendrerit eros in luctus feugiat.
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					multi-column layout
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="https://css-tricks.com/guide-responsive-friendly-css-columns/">
+								Guide to Responsive-Friendly CSS Columns – CSS-tricks
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts">
+								Using CSS multi-column layouts – MDN
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						Grid layout 
+					</h2>
+					<p class="ciu_embed" data-feature="css-grid" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=css-grid">Can I Use css-grid?</a> Data on support for the css-grid feature across the major browsers from caniuse.com.
+					</p>
+				</section>
+				<section>
+					grid layout
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							"most powerful layout system available in CSS"
+						</li>
+						<li>
+							for large-scale, 2-dimensional layouts
+						</li>
+						<li>
+							like a table with rows and columns, but with many more possibilites
+						</li>
+						<li>
+							you can specify rows, columns and named areas, and place elements in them
+						</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						grid layout
+						<h3>Grid container properties</h3>
+						<pre><code data-trim>
+							.grid-container {
+							  display: grid | inline-grid | subgrid;
+							  grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
+							  grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
+							  grid-template-areas: none | &lt;string&gt;+;
+							  grid-column-gap: &lt;length&gt; | &lt;percentage&gt;;
+							  grid-row-gap: &lt;length&gt; | &lt;percentage&gt;;
+							  ...
+							}
+						</code></pre>
+					</section>
+					<section>
+						<figure>
+							<img src="/img/grid-formal-syntax.png" />
+							<figcaption>source: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns</figcaption>
+						</figure>
+					</section>
+				</section>
+				<section>
+					grid layout
+					<h3>Grid item properties</h3>
+					<pre><code data-trim class="css">
+						.grid-item {
+						  grid-column-start: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
+						  grid-column-end: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
+						  grid-row-start: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
+						  grid-row-end: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
+						  grid-area: &lt;name&gt;;
+						}
+					</code></pre>
+				</section>
+				<section id="grid-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="grid-container">
+								<div class="demonstration-item item-1">
+								</div>
+								<div class="demonstration-item item-2">
+								</div>
+								<div class="demonstration-item item-3">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					grid layout
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="https://www.cssgridplayground.com/">
+								CSS Grid Playground								
+							</a>
+						</li>
+						<li>
+							<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">
+								A Complete Guide to Grid – CSS-tricks
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">
+								CSS Grid Layout – MDN
+							</a>
+						</li>
+					</ul>
 				</section>
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+
+		<script src="//cdn.jsdelivr.net/caniuse-embed/1.1.0/caniuse-embed.min.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -69,19 +352,71 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js' },
 					{ src: 'plugin/reveal-css-snippet/css-snippet.js', async: true, callback: function() {
-						document.getElementById('css-snip-slide').insertBefore(
+						document.querySelector('#flex-demonstration .css-editable-sections').appendChild(
 							RevealCSSSnippet({
-								//el is a DOM node that you wish to scope the CSS too. The scoping is done via attribute selector, so beware of specificity issues with existing styles. The default is no scoping, which allows you to write CSS to target anything in the presentation.
-								el: document.querySelector('#css-snip-slide #targetElement'),
-								
-								//cssValue is the default CSS to be loaded into the block at initialization. The default is empty string.
-								cssValue: "background: #ff0;\r\nheight: 50px;"
-							}),
-							document.querySelector('#css-snip-slide #targetElement')
-						)
+								el: document.querySelector('#flex-demonstration .flex-container'),
+								cssValue: 'display: flex;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-1'),
+								cssValue: 'flex: 1;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-2').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-2'),
+								cssValue: 'flex: 1.5;'
+							})
+						);
+						document.querySelector('#flex-demonstration .item-3').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#flex-demonstration .item-3'),
+								cssValue: 'flex: 2;'
+							})
+						);
+						document.querySelector('#columns-demonstration .css-editable-sections').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#columns-demonstration .columns-container'),
+								cssValue: 'column-count: 2; column-width: 200px;'
+							})
+						);
+						document.querySelector('#columns-demonstration .item-2').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#columns-demonstration .item-2'),
+								cssValue: ''
+							})
+						);
+						document.querySelector('#grid-demonstration .css-editable-sections').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#grid-demonstration .grid-container'),
+								cssValue: 'display: grid; grid-template-columns: 1fr 100px 1fr; grid-template-rows: 1fr 1fr 100px;'
+							})
+						);
+						document.querySelector('#grid-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#grid-demonstration .item-1'),
+								cssValue: 'grid-row-start: 1; grid-row-end: span 2; grid-column-start: 1; grid-column-end: span 2;'
+							})
+						);
+						document.querySelector('#grid-demonstration .item-2').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#grid-demonstration .item-2'),
+								cssValue: 'grid-row-start: 2; grid-column-start: 2; grid-column-end: span 2;'
+							})
+						);
+						document.querySelector('#grid-demonstration .item-3').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#grid-demonstration .item-3'),
+								cssValue: 'grid-row-start: 3; grid-column-start: 1; grid-column-end: 4;'
+							})
+						);
 					} },
 				],
-				history: true
+				history: true,
+				width: 1280,
+				height: 720
 			});
 		</script>
 	</body>

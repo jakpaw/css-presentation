@@ -51,7 +51,7 @@ window.RevealCSSSnippet = function (O) {
             val = (txt.textContent || txt.innerText).replace(/\s/g, ' ').trim();
 
         if (O.el) {
-            stl.innerHTML = '[data-csssnippet="' + ts + '"]{' + val + '}';
+            stl.innerHTML = '.reveal [data-csssnippet="' + ts + '"]{' + val + '}';
         } else {
             stl.innerHTML = val;
         }

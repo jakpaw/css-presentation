@@ -1,5 +1,103 @@
-#targetElement {
-    width: 90%;
-    margin: 0 auto;
-    color: green;
+.reveal 
+{
+    section img {
+        border: none;
+        margin: 0;
+    }
+
+    section figcaption {
+        font-size: 12px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    .demonstration-slide {
+        bottom: 0;
+    }
+
+    .demonstration-slide-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .css-target-element {
+        width: 90%;
+        flex: 1;
+        margin: 0 auto;
+    }
+
+    .css-editable-sections {
+        display: flex;
+        position: relative;
+        z-index: 2;
+    }
+
+    .demonstration-item {
+        color: #333;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: inherit;
+            font-size: 24px;
+            line-height: 28px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        &:nth-child(1) {
+            background-color: #F2E394;
+
+            &::before {
+                content: 'A';
+            }
+        }
+
+        &:nth-child(2) {
+            background-color: #F2AE72;
+
+            &::before {
+                content: 'B';
+            }
+        }
+
+        &:nth-child(3) {
+            background-color: #D96459;
+
+            &::before {
+                content: 'C';
+            }
+        }
+
+        &:nth-child(4) {
+            background-color: #588C7E;
+
+            &::before {
+                content: 'D';
+            }
+        }
+    }
+
+    .flex-container,
+    .columns-container,
+    .grid-container {
+        height: 100%;
+    }
+
+    .columns-container .demonstration-item {
+        padding-bottom: 20px;
+    }
+
+    .grid-container .demonstration-item {
+        padding: 20px 0;
+    }
 }
+
+
