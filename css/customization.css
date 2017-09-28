@@ -66,5 +66,13 @@
     .reveal .demonstration-item:nth-child(4)::before {
       content: 'D'; }
 
-.flex-container {
+.reveal .flex-container,
+.reveal .columns-container,
+.reveal .grid-container {
   height: 100%; }
+
+.reveal .columns-container .demonstration-item {
+  padding-bottom: 20px; }
+
+.reveal .grid-container .demonstration-item {
+  padding: 20px 0; }
