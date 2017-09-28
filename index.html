@@ -60,13 +60,13 @@
 						flexbox layout
 						<h3>Vocabulary</h3>
 						<figure>
-							<img src="/img/flex-container.png" />
+							<img src="img/flex-container.png" />
 							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
 						</figure>
 					</section>
 					<section>
 						<figure>
-							<img src="/img/flex-axes.png" />
+							<img src="img/flex-axes.png" />
 							<figcaption>source: https://lincolnloop.com/blog/introducing-flexbox-fridays/</figcaption>
 						</figure>
 					</section>
@@ -74,7 +74,7 @@
 				<section>
 					flexbox layout
 					<h3>Flex container properties</h3>
-					<pre><code data-trim>
+					<pre><code data-trim class="css">
 						.flex-container {
 						  display: flex | inline-flex;
 						  flex-direction: row | column | row-reverse | column-reverse;
@@ -89,7 +89,7 @@
 					<section>
 						flexbox layout
 						<h3>Flex item properties</h3>
-						<pre><code data-trim>
+						<pre><code data-trim class="css">
 							.flex-item {
 							  flex-basis: auto | &lt;'width'&gt;;
 							  flex-grow: &lt;number&gt;;
@@ -174,7 +174,7 @@
 				<section>
 					multi-column layout
 					<h3>Columns container properties</h3>
-					<pre><code data-trim>
+					<pre><code data-trim class="css">
 						.columns-container {
 						  column-count: &lt;integer&gt; | auto;
 						  column-width: &lt;length&gt; | auto;
@@ -188,7 +188,7 @@
 				<section>
 					multi-column layout
 					<h3>Children properties</h3>
-					<pre><code data-trim>
+					<pre><code data-trim class="css">
 						.columns-child {
 						  break-inside: auto | avoid | avoid-column | column;
 						  break-before: auto | avoid | avoid-column | column;
@@ -263,7 +263,7 @@
 					<section>
 						grid layout
 						<h3>Grid container properties</h3>
-						<pre><code data-trim>
+						<pre><code data-trim class="css">
 							.grid-container {
 							  display: grid | inline-grid | subgrid;
 							  grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
@@ -277,7 +277,7 @@
 					</section>
 					<section>
 						<figure>
-							<img src="/img/grid-formal-syntax.png" />
+							<img src="img/grid-formal-syntax.png" />
 							<figcaption>source: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns</figcaption>
 						</figure>
 					</section>
@@ -328,6 +328,83 @@
 						<li>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">
 								CSS Grid Layout – MDN
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						Transitions
+					</h2>
+					<p class="ciu_embed" data-feature="css-transitions" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=css-transitions">Can I Use css-transitions?</a> Data on support for the css-transitions feature across the major browsers from caniuse.com.
+					</p>
+				</section>
+				<section>
+					transitions
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							make property changes happen over a period of time
+						</li>
+						<li>
+							intermediate states are automatically calculated
+						</li>
+						<li>
+							you can control delay, duration and easing of transition
+						</li>
+						<li>
+							not all properties can be animated
+						</li>
+					</ul>
+				</section>
+				<section>
+					transitions
+					<h3>How to use</h3>
+					<pre><code data-trim class="css">
+						div {
+						  transition-delay: &lt;time&gt;#;
+						  transition-duration: &lt;time&gt;#;
+						  transition-property: none | all | &lt;custom-ident&gt;;
+						  transition-timing-function: linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; | &lt;frames-timing-function&gt;;
+						}
+					</code></pre>
+					... or as a shorthand property
+					<pre><code data-trim class="css">
+						div {
+						  transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];
+						}
+					</code></pre>
+				</section>
+				<section id="transitions-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="transitions-container">
+								<div class="demonstration-item item-1">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					transitions
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="https://css-tricks.com/almanac/properties/t/transition/">
+								transition – CSS-tricks
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">
+								transition – MDN
+							</a>
+						</li>
+						<li>
+							<a href="http://easings.net/">
+								Easing Functions Cheat Sheet
 							</a>
 						</li>
 					</ul>
@@ -410,6 +487,12 @@
 							RevealCSSSnippet({
 								el: document.querySelector('#grid-demonstration .item-3'),
 								cssValue: 'grid-row-start: 3; grid-column-start: 1; grid-column-end: 4;'
+							})
+						);
+						document.querySelector('#transitions-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#transitions-demonstration .item-1'),
+								cssValue: ''
 							})
 						);
 					} },

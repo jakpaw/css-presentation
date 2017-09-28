@@ -39,17 +39,18 @@
     .demonstration-item {
         color: #333;
         position: relative;
+        padding: 20px 0;
 
         &::before {
             position: absolute;
-            top: -10px;
-            left: -10px;
+            top: 0;
+            left: 0;
             background-color: inherit;
             font-size: 24px;
             line-height: 28px;
+            font-weight: bold;
             width: 28px;
             height: 28px;
-            border-radius: 50%;
         }
 
         &:nth-child(1) {
@@ -89,14 +90,6 @@
     .columns-container,
     .grid-container {
         height: 100%;
-    }
-
-    .columns-container .demonstration-item {
-        padding-bottom: 20px;
-    }
-
-    .grid-container .demonstration-item {
-        padding: 20px 0;
     }
 }
 
