@@ -33,6 +33,9 @@
 					Friday seminar by Jakub Pawłot
 				</section>
 				<section>
+					<img src="img/css-window.gif"/>
+				</section>
+				<section>
 					<h2>
 						Flexible box (flexbox) layout 
 					</h2>
@@ -409,6 +412,156 @@
 						</li>
 					</ul>
 				</section>
+				<section id="transforms-title">
+					<h2>
+						Transforms
+					</h2>
+					<p class="ciu_embed" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=transforms2d">Can I Use transforms2d?</a> Data on support for the transforms2d feature across the major browsers from caniuse.com.
+					</p>
+					<p class="ciu_embed" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=transforms3d">Can I Use transforms3d?</a> Data on support for the transforms3d feature across the major browsers from caniuse.com.
+					</p>
+				</section>
+				<section>
+					transforms
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							change elements' shape and size without affecting other elements
+						</li>
+						<li>
+							you can apply multiple transforms to an element
+						</li>
+						<li>
+							can be animated cheaply
+						</li>
+					</ul>
+				</section>
+				<section>
+					transforms
+					<h3>How to use</h3>
+					<pre><code data-trim class="css">
+						div {
+						  transform: [ &lt;translate()&gt; || &lt;scale()&gt; || &lt;rotate()&gt; || &lt;skew()&gt; || &lt;translate3d()&gt; || &lt;scale3d()&gt; || &lt;rotate3d()&gt; || &lt;perspective()&gt; || ... ]+ ;
+						  transform-origin: [x] [y] [z];
+						}
+					</code></pre>
+				</section>
+				<section id="transforms-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="transforms-container">
+								<div class="demonstration-item item-1">
+								</div>
+								<div class="demonstration-item item-2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					transforms
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="https://css-tricks.com/almanac/properties/t/transform/">
+								transform – CSS-tricks
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">
+								transform – MDN
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						CSS Variables (Custom Properties)
+					</h2>
+					<p class="ciu_embed" data-feature="css-variables" data-periods="future_1,current,past_1,past_2">
+						<a href="http://caniuse.com/#feat=css-variables">Can I Use css-variables?</a> Data on support for the css-variables feature across the major browsers from caniuse.com.
+					</p>
+				</section>
+				<section>
+					variables
+					<h3>Key features</h3>
+					<ul>
+						<li>
+							reduce duplication in code
+						</li>
+						<li>
+							their values are inherited from parent elements
+						</li>
+						<li>
+							can be read and written from JavaScript
+						</li>
+					</ul>
+				</section>
+				<section>
+					variables
+					<h3>How to use</h3>
+					<pre><code data-trim class="css">
+						div {
+						  --some-variable: red;
+						}
+					</code></pre>
+					<pre><code data-trim class="css">
+						div {
+						  background-color: var(--some-variable);
+						}
+					</code></pre>
+				</section>
+				<section id="variables-demonstration" class="demonstration-slide">
+					<div class="demonstration-slide-content">
+						<div class="css-editable-sections">
+						</div>
+						<div class="css-target-element">
+							<div class="variables-container">
+								<div class="demonstration-item item-1">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					variables
+					<h3>Learn more</h3>
+					<ul>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">
+								Using CSS Variables – MDN
+							</a>
+						</li>
+						<li>
+							<a href="https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care">
+								CSS Variables: Why Should You Care? – Google Developers
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Other features worth checking out</h3>
+					<ul>
+						<li>
+							animations
+						</li>
+						<li>
+							gradients
+						</li>
+						<li>
+							filters
+						</li>
+					</ul>
+				</section>
+				<section>
+					<img src="img/css-is-awesome.jpg" width="400px"/>
+					<h1>The end</h1>
+					thanks for listening!
+				</section>
 			</div>
 		</div>
 
@@ -493,6 +646,24 @@
 							RevealCSSSnippet({
 								el: document.querySelector('#transitions-demonstration .item-1'),
 								cssValue: ''
+							})
+						);
+						document.querySelector('#transforms-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#transforms-demonstration .item-1'),
+								cssValue: ''
+							})
+						);
+						document.querySelector('#variables-demonstration .css-editable-sections').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#variables-demonstration .variables-container'),
+								cssValue: '--bg-color: red;'
+							})
+						);
+						document.querySelector('#variables-demonstration .item-1').appendChild(
+							RevealCSSSnippet({
+								el: document.querySelector('#variables-demonstration .item-1'),
+								cssValue: 'transition: all 200ms; background-color: var(--bg-color);'
 							})
 						);
 					} },
