@@ -88,8 +88,39 @@
 
     .flex-container,
     .columns-container,
-    .grid-container {
+    .grid-container,
+    .transitions-container,
+    .transforms-container,
+    .variables-container {
         height: 100%;
+    }
+
+    iframe {
+        height: 317px;
+    }
+
+    p.ciu_embed {
+        margin: 0;
+    }
+
+    #transforms-title p.ciu_embed:first-of-type iframe {
+        height: 285px;
+    }
+
+    .transitions-container,
+    .transforms-container,
+    .variables-container {
+        display: flex;
+        align-items: center;
+
+        .demonstration-item {
+            flex: 1;
+        }
+    }
+
+    .transforms-container {
+        align-items: stretch;
+        flex-direction: column;
     }
 }
 
