@@ -3,7 +3,8 @@
   margin: 0; }
 
 .reveal section figcaption {
-  font-size: 12px; }
+  font-size: 12px;
+  color: #555555; }
 
 .reveal pre {
   white-space: pre-wrap; }
